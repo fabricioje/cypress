@@ -6,7 +6,7 @@ it('A external test...', ()=>{
 //Agrupa testes
 describe('Should group testes...',()=>{
     describe('Should group more specific tests...',()=>{
-        it.skip('A internal test...', ()=>{
+        it('A internal test...', ()=>{
 
         })
     })
