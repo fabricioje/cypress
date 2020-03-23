@@ -13,6 +13,13 @@ describe('Cypress basic', () => {
         cy.title()
             .should('to.be.equal', 'Campo de Treinamento')
             .and('contain', 'Campo')
+    })
 
+    it.only('Shoul find and interact with an element', () =>{
+        cy.visit('https://wcaquino.me/cypress/componentes.html')
+
+        cy.get('#buttonSimple')
+            .click()
+            .should('have.value', 'Obrigado!')
     })
 })
