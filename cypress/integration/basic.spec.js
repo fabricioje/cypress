@@ -7,7 +7,7 @@ describe('Cypress basic', () => {
         //const title = cy.title()
         //console.log(title)
 
-        cy.pause()
+        //cy.pause()
 
         cy.title().should('to.be.equal', 'Campo de Treinamento')
         cy.title().should('contain', 'Campo')
@@ -15,6 +15,10 @@ describe('Cypress basic', () => {
         cy.title()
             .should('to.be.equal', 'Campo de Treinamento')
             .and('contain', 'Campo')
+        
+        cy.title().then(title => {
+            console.log(title)
+        })
     })
 
     it('Shoul find and interact with an element', () =>{
