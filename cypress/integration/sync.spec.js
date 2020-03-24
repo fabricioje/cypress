@@ -18,4 +18,12 @@ describe('Esperas...' ,() => {
         cy.get('#novoCampo').should('exist')
         cy.get('#novoCampo').type('funciona')
     })
+
+    it.only('Deve fazer retrys', () => {        
+        cy.get('#buttonDelay').click()
+        cy.get('#novoCampo')
+            //.should('not.exist') // Deixando essa linha, como o objeto não existe ele retornar NULL, causando errao nas acertivas posteriores
+            .should('exist')
+            .type('funciona')
+    })
 })
