@@ -28,7 +28,7 @@ describe('Work with basic elements', () =>{
         })
     })
 
-    it('Alert', () => {
+    it('Confirm', () => {
         cy.get('#confirm').click()
         cy.on('window:confirm', msg => {
             console.log(msg)
@@ -40,7 +40,7 @@ describe('Work with basic elements', () =>{
         })
     })
 
-    it.only('Denny', () => {
+    it('Denny', () => {
         cy.get('#confirm').click()
         cy.on('window:confirm', msg => {
             console.log(msg)
@@ -50,6 +50,20 @@ describe('Work with basic elements', () =>{
         cy.on('window:alert', msg => {
             console.log(msg)
             expect(msg).to.be.equal('Negado')
+        })
+    })
+
+    it.only('Prompt', () => {
+        cy.window().then(win => {
+            cy.stub(win, 'prompt').returns('42')
+        })
+        cy.get('#prompt').click()
+        cy.on('window:prompt', msg => {
+            expect(msg).to.be.equal('Era 42?')
+        })
+        cy.on('window:alert', msg => {
+            console.log(msg)
+            expect(msg).to.be.equal(':D')
         })
     })
 })
