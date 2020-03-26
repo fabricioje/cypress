@@ -23,5 +23,5 @@ require('cypress-xpath')
 
 //Código para mudar a prioridade de tags
 Cypress.SelectorPlayground.defaults({
-    selectorPriority: ['data-wc','id', 'class', 'attributes', 'data-cy', 'data-testid', 'tag', 'nth-child']
+    selectorPriority: ['data-wc', 'data-cy', 'data-test', 'data-testid', 'id', 'class', 'attributes', 'tag', 'nth-child']
 })
