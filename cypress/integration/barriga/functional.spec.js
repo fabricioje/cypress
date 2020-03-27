@@ -6,11 +6,13 @@ describe('Should test at a functional level', () =>{
 
     //Executa uma vez antes do teste começar
     before(() =>{
-        cy.visit('http://barrigareact.wcaquino.me/')
-        cy.get(loc.LOGIN.USER).type('fabricio@email.com')
-        cy.get(loc.LOGIN.PASSWORD    ).type('biscoito')
-        cy.get(loc.LOGIN.BTN_LOGIN).click()
-        cy.get(loc.MESSAGE).should('contain', 'Bem vindo')
+        cy.login('fabricio@email.com', 'biscoito')
+        cy.resetApp()
+        // cy.visit('http://barrigareact.wcaquino.me/')
+        // cy.get(loc.LOGIN.USER).type('fabricio@email.com')
+        // cy.get(loc.LOGIN.PASSWORD    ).type('biscoito')
+        // cy.get(loc.LOGIN.BTN_LOGIN).click()
+        // cy.get(loc.MESSAGE).should('contain', 'Bem vindo')
     })
 
     //Executa antes de cada teste
