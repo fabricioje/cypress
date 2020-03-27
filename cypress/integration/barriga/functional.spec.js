@@ -25,8 +25,7 @@ describe('Should test at a functional level', () =>{
 
     it('Should update an account', () => {
 
-        cy.get(loc.MENU.SETTINGS).click()
-        cy.get(loc.MENU.CONTAS).click()
+        cy.acessarMenuConta()
 
         cy.xpath(loc.CONTAS.XP_BTN_ALTERAR).click()
         cy.get(loc.CONTAS.NOME)
@@ -34,5 +33,13 @@ describe('Should test at a functional level', () =>{
             .type('Conta alterada')
         cy.get(loc.CONTAS.BTN_SALVAR).click()
         cy.get(loc.MESSAGE).should('contain', 'Conta atualizada')
+    })
+
+    it('Should not create an account wtih sma name', () => {
+        cy.acessarMenuConta()
+
+        cy.get(loc.CONTAS.NOME).type('Conta alterada')
+        cy.get(loc.CONTAS.BTN_SALVAR).click()
+        cy.get(loc.MESSAGE).should('contain', 'code 400')
     })
 })
